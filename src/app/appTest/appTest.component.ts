@@ -1,11 +1,8 @@
-import {Component} from '@angular/core'
+import { Component } from '@angular/core'
 
 @Component({
   selector: 'app-appTest',
-  templateUrl:'./appTest.component.html',
-  styleUrls:['appTest.component.scss']
+  templateUrl: './appTest.component.html',
+  styleUrls: ['appTest.component.scss'],
 })
-
-export class appTestComponent {
-
-}
+export class appTestComponent {}

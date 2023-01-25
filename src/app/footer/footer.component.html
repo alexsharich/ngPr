@@ -2,4 +2,36 @@
   <div>
     <p>{{ componentName }}</p>
   </div>
+  <div >
+    <input type="text" [(ngModel)]="value">
+      <div [ngSwitch]="value">
+        <div *ngSwitchCase="'1'">one</div>
+        <div *ngSwitchCase="'2'">two</div>
+        <div *ngSwitchDefault>Unknow text</div>
+      </div>
+  </div>
+  <div>
+    <h3>1</h3>
+    <div *ngFor="let fruit of fruits">
+      {{fruit.name}} - {{fruit.price}} $
+    </div>
+  </div>
+  <div>
+    <h3>2</h3>
+    <div *ngFor="let fruit of fruits;odd as odd;even as even">
+      <div [ngClass]="{even:even,odd:odd}">{{fruit.name}}</div>
+    </div>
+  </div>
+  <div>
+    <h3>3</h3>
+    <div *ngFor="let fr of fruits">
+      <div *ngIf="fr.price > 10">{{fr.name}}</div>
+    </div>
+  </div>
+  <div>
+    <h3>4</h3>
+    <div *ngFor="let fr of fruits">
+      <div *ngIf="fr.price > 15" [ngClass]="{errorPrice:fr.price > 15}">{{fr.name}}</div>
+    </div>
+  </div>
 </div>

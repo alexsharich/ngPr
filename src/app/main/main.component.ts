@@ -12,6 +12,7 @@ export interface IUser {
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent {
+  isLoading:boolean = false
   public componentName = 'MAIN'
   text = 'start text'
   user: IUser = {
@@ -20,8 +21,14 @@ export class MainComponent {
     surName:'Alexandrovich'
   }
   books:Array<string>=['first','second']
+  letters:String[]=['a','b','c','d','e','f']
 
   addBook(book:string){
     this.books.push(book)
+  }
+  constructor(){
+    setTimeout(() => {
+      this.isLoading= true
+    }, 3000);
   }
 }

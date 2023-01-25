@@ -1,15 +1,25 @@
 <div class="main">
-  <div class="userInfo">
-    <h3>User</h3>
-    <h4>Age:{{ user.age }}</h4>
-    <h4>Name:{{ user.name }}</h4>
-    <h4>Books:{{books | json}}</h4>
+  <div class="mainContainer" *ngIf="isLoading,else content">
+
+    <div class="userInfo">
+      <h3>User</h3>
+      <h4>Age:{{ user.age }}</h4>
+      <h4>Name:{{ user.name }}</h4>
+      <h4>Books:{{books | json}}</h4>
+    </div>
+    <div>
+      <h2>{{ text }}</h2>
+      <input type="text" [(ngModel)]="text" />
+    </div>
+    <div>
+      <ngPr-child [user]="user" (addBookEvent)="addBook($event)"></ngPr-child>
+    </div>
+    <ul class="lettersStyle" *ngFor="let letter of letters, index as i" >
+      <li>{{i}} : {{letter}}</li>
+    </ul>
   </div>
-  <div>
-    <h2>{{ text }}</h2>
-    <input type="text" [(ngModel)]="text" />
-  </div>
-  <div>
-    <ngPr-child [user]="user" (addBookEvent)="addBook($event)"></ngPr-child>
-  </div>
+
+  <ng-template #content>
+     ...LOADING
+  </ng-template>
 </div>
